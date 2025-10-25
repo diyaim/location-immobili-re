@@ -257,11 +257,11 @@ main {
   transition: padding 300ms ease-in-out;
 }
 
-.collaps_anim[aria-hidden="false"] .collaps_text {
+.collaps_anim[aria-hidden="true"] .collaps_text {
   padding: 0 16px;
 }
 
-.collaps_anim[aria-hidden="true"] .collaps_text {
+.collaps_anim[aria-hidden="false"] .collaps_text {
   padding: 12px 16px;
 }
 
