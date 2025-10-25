@@ -1,10 +1,5 @@
-import { StrictMode } from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
-import AppRoutes from "./Router"
+import AppRoutes from "./Router";
 
-ReactDOM.createRoot(document.getElementById("root")).render(
-  <StrictMode>
-    <AppRoutes />
-  </StrictMode>
-);
+ReactDOM.createRoot(document.getElementById("root")).render(<AppRoutes />);
