@@ -36,7 +36,9 @@ export default function Apropos() {
 
       <section className="apropos-collaps">
         {aboutContent.map(({ id, titre, texte }) => (
-          <Collaps key={id} title={titre} text={texte} />
+          <Collaps key={id} title={titre}>
+            {texte}
+          </Collaps>
         ))}
       </section>
     </div>

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import arrowCollaps from "../assets/arrow_collaps.svg";
 
-export default function Collaps({ title, text }) {
+export default function Collaps({ title, children }) {
   const [open, setOpen] = useState(false);
 
   return (
@@ -17,7 +17,7 @@ export default function Collaps({ title, text }) {
         <img className="collaps_arrow " src={arrowCollaps} alt="" aria-hidden="true" />
       </div>
       <div data-testid="collaps_text" className="collaps_anim" aria-hidden={!open}>
-        <div className="collaps_text">{text}</div>
+        <div className="collaps_text">{children}</div>
       </div>
     </div>
   );

@@ -10,7 +10,9 @@ describe('Collaps', () => {
   })
     test('Should open collaps', async () => {
     render(
-      <Collaps title="collaps1" text="collaps est ouvert"/>
+      <Collaps title="collaps1">
+        collaps est ouvert
+      </Collaps>
     )
     const collapsHead = screen.getByTestId('collaps_head')
     const collapsText = screen.getByTestId('collaps_text')
