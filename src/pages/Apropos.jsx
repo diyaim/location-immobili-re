@@ -1,5 +1,5 @@
 import Banner from "../components/Banner.jsx";
-import Collapse from "../components/Collaps.jsx";
+import Collaps from "../components/Collaps.jsx";
 import Banner2 from "../assets/banner2.svg";
 
 const aboutContent = [
@@ -36,9 +36,7 @@ export default function Apropos() {
 
       <section className="apropos-collaps">
         {aboutContent.map(({ id, titre, texte }) => (
-          <Collapse key={id} title={titre}>
-            <p>{texte}</p>
-          </Collapse>
+          <Collaps key={id} title={titre} text={texte} />
         ))}
       </section>
     </div>

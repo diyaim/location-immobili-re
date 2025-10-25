@@ -204,10 +204,7 @@ main {
 
 .collaps {
   margin: 0;
-  /* display: flex;
-  flex-direction: column;
-  gap: 30px; */
-}
+ }
 .collaps_head {
   display: flex;
   align-items: center;
@@ -226,50 +223,49 @@ main {
 }
 .collaps_text {
   background: #f7f7f7;
-  padding: 12px 16px;
   border-radius: 5px;
 }
 .collaps_arrow {
   display: inline-block;
+    transform: rotate(0);  
   transition: transform 600ms ease;
   color: white;
   user-select: none;
 }
 /* animation collaps  */
 /* rotation de la fléche */
-.collaps[open] .collaps_arrow { 
+.collaps_head[aria-expanded="true"] .collaps_arrow {
   transform: rotate(-180deg);
 }
+/* animation d'ouverture du contenu */
 .collaps_anim {
   display: grid;
-  grid-template-rows: 0fr;
+  grid-template-rows: 0fr;  /* fermé par défaut */
   transition: grid-template-rows 600ms ease;
-  overflow: hidden;               /* ✅ indispensable */
+  overflow: hidden; /* indispensable masque tout, y compris le padding interne */
 }
-.collaps_anim > * {
-  min-height: 0;
+.collaps_anim > * { min-height: 0; }
+.collaps_text{
+  margin: 0; /* evite qu'une margine reste visible */
 }
-.collaps[open] .collaps_anim {
+/* quand le head est "ouvert", on déploie le panneau suivant */
+.collaps_head[aria-expanded="true"] + .collaps_anim {
   grid-template-rows: 1fr;
 }
 
-/* style normal du contenu */
 .collaps_text {
-  background: #f7f7f7;
+  transition: padding 300ms ease-in-out;
+}
+
+.collaps_anim[aria-hidden="false"] .collaps_text {
+  padding: 0 16px;
+}
+
+.collaps_anim[aria-hidden="true"] .collaps_text {
   padding: 12px 16px;
-  border-radius: 5px;
-  will-change: transform, opacity;  /* hint perf */
 }
 
-/* animation qui se relance à chaque ouverture */
-@keyframes slideDown {
-  from { opacity: 0; transform: translateY(-20px); }
-  to   { opacity: 1; transform: translateY(0); }
-}
 
-.collaps[open] .collaps_text {
-  animation: slideDown 600ms ease both;
-}
 
 
 /* page apropos  */

@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 import Gallery from '../components/gallery';
 import { render, screen, fireEvent } from '@testing-library/react'
 
@@ -14,7 +15,7 @@ describe('Gallery', () => {
     })
     test('Should render Gallery with one picture and alt', async () => {
         render(
-            <Gallery alt="my picture" />
+            <Gallery images={["picture.png"]} alt="my picture" />
         )
     })
     test('Should render Gallery with two pictures and navigation', async () => {
